@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+<script src="tictacfirebase.js"></script>
+<link rel="stylesheet" type="text/css" href="tictacfirebase.css"/>
+<link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Wallpoet' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body x-ng-app = "TicTac" x-ng-controller = "TicTacCtrl">
+
+	<header>Tic-Tac-Toe</header>
+	
+	<div id="playerbox">
+
+	<div id="winnerscore">
+
+	<div id="winner">Winner =
+	<img src="{{winner}}" />
+	</div>
+
+	<div id="scoreboard">
+	
+	x = {{obj.tallyx}}
+	
+	<br>
+	
+	o = {{obj.tallyo}}
+	
+	</div>
+
+	</div>
+
+	<br>
+	
+<!-- 	<div id ="players">
+	<img src = "{{obj.x}}" />
+	<img src = "{{obj.o}}" />
+	</div>
+ -->
+	<br>
+
+	<div id = "reset" x-ng-click="resetBoard()">Reset</div>
+
+	</div>
+
+	<div class="board">
+			
+			<div x-ng-repeat="row in obj.boxes track by $index">
+        		
+        		<div x-ng-repeat="box in row track by $index"
+        		
+        		class = "box" 
+        		x-ng-click="clickMoney($parent.$index, $index); winningPlayer()">
+        		<img src = "{{box}}" />
+    			
+    			</div>
+
+			</div>
+
+	</div>
+
+</body>
+</html>
